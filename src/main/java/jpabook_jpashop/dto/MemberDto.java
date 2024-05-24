@@ -4,6 +4,7 @@ import jpabook_jpashop.domain.Member;
 import lombok.Getter;
 import lombok.Setter;
 
+
 import java.time.LocalDateTime;
 
 @Getter
@@ -13,6 +14,7 @@ public class MemberDto {
     private String name;
     private String email;
     private LocalDateTime registerDate;
+
 
 
     public static MemberDto from(Member member) {

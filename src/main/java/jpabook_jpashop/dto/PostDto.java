@@ -1,14 +1,16 @@
 package jpabook_jpashop.dto;
 
+
 import jpabook_jpashop.domain.Post;
-//import lombok.Getter;
+import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
 
-//@Getter
+@Getter
 @Setter
 public class PostDto {
+
     private Long id;
     private String title;
     private String content;
@@ -22,7 +24,12 @@ public class PostDto {
         postDto.setContent(post.getContent());
         postDto.setPostDate(post.getPostDate());
         if(post.getMember() != null){
-            postDto.setMember(MemberDto.from(post.getMember()));
+            MemberDto memberDto = new MemberDto();
+            memberDto.setId(post.getMember().getId());
+            memberDto.setName(post.getMember().getName());
+            memberDto.setEmail(post.getMember().getEmail());
+            memberDto.setRegisterDate(post.getMember().getRegisterDate());
+            postDto.setMember(memberDto);
         }
         return postDto;
     }

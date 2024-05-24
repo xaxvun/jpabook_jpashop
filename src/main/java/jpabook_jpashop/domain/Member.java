@@ -1,5 +1,6 @@
 package jpabook_jpashop.domain;
 //Member Entity
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 import lombok.Getter;
@@ -14,6 +15,7 @@ import java.util.List;
 @Entity // 테이블과 엔티티 매핑
 @Getter
 @Setter
+@JsonIgnoreProperties({"posts", "comments"})
 public class Member {
     @Id // 기본키 지정
     @GeneratedValue(strategy = GenerationType.IDENTITY)

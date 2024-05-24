@@ -1,5 +1,6 @@
 package jpabook_jpashop.domain;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -15,11 +16,12 @@ import java.util.List;
 public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="Post_id")
+    @Column(name="post_id")
     private Long id;
 
     @ManyToOne
     @JoinColumn(name="member_id")// 외래키를 지정, member_id가 외래키로 사용됨
+    @JsonManagedReference
     private Member member;
 
     private String title;
